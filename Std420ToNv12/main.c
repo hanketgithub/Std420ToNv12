@@ -21,11 +21,11 @@
 #include "420ToNv12.h"
 
 
-bool fill_buffer(void *buf, uint32_t desired_bytes)
+bool fill_img_buffer(void *img, uint32_t desired_bytes)
 {
     bool res;
     ssize_t rd_byte;
-    char *cp = buf;
+    uint8_t *cp = (uint8_t *) img;
     
     res = true;
     
@@ -87,7 +87,7 @@ int main(int argc, const char * argv[]) {
     
     while (1)
     {
-        if (fill_buffer(img, wxh * 3 / 2))
+        if (fill_img_buffer(img, wxh * 3 / 2))
         {
             planar_to_interleave
             (
