@@ -20,25 +20,31 @@
 
 #include "420ToNv12.h"
 
+#define MAX_WIDTH   3840
+#define MAX_HEIGHT  2160
 
-bool fill_img_buffer(void *img, uint32_t desired_bytes)
+static uint8_t img[MAX_WIDTH * MAX_HEIGHT * 3 / 2];
+static uint8_t u_et_v[MAX_WIDTH * MAX_HEIGHT / 2];
+
+
+bool fill_img_buffer(uint8_t *img, uint32_t desired_bytes)
 {
     bool res;
     ssize_t rd_byte;
-    uint8_t *cp = (uint8_t *) img;
+    uint8_t *pu8 = img;
     
     res = true;
     
     while (desired_bytes > 0)
     {
-        rd_byte = read(STDIN_FILENO, cp, desired_bytes);
+        rd_byte = read(STDIN_FILENO, pu8, desired_bytes);
         
         if (rd_byte == 0) // EOF
         {
             return false;
         }
         
-        cp += rd_byte;
+        pu8 += rd_byte;
         desired_bytes -= rd_byte;
     }
     
@@ -54,9 +60,8 @@ int main(int argc, const char * argv[]) {
     uint32_t width;
     uint32_t height;
     uint32_t wxh;
-    
-    uint8_t *img;
-    uint8_t *u_et_v_dst;
+
+    //uint8_t *u_et_v;
     
     if (argc < 3)
     {
@@ -65,19 +70,14 @@ int main(int argc, const char * argv[]) {
         return -1;
     }
     
-    width       = 0;
-    height      = 0;
-    wxh         = 0;
-    img         = NULL;
-    u_et_v_dst  = NULL;
+    width   = 0;
+    height  = 0;
+    wxh     = 0;
     
     width   = atoi(argv[1]);
     height  = atoi(argv[2]);
     
     wxh = width * height;
-    
-    img = malloc(wxh * 3 / 2);
-    u_et_v_dst = malloc(wxh / 2);
     
     y = img;
     u = y + wxh;
@@ -92,13 +92,13 @@ int main(int argc, const char * argv[]) {
             planar_to_interleave
             (
              wxh,
-             u_et_v_dst,
+             u_et_v,
              u,
              v
              );
             
             write(STDOUT_FILENO, y, wxh);
-            write(STDOUT_FILENO, u_et_v_dst, wxh / 2);
+            write(STDOUT_FILENO, u_et_v, wxh / 2);
         }
         else
         {
