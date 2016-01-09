@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36A0032D1BC1103A009246F9 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 36A0032C1BC1103A009246F9 /* main.c */; };
-		36A003351BC110B1009246F9 /* 420ToNv12.c in Sources */ = {isa = PBXBuildFile; fileRef = 36A003331BC110B1009246F9 /* 420ToNv12.c */; settings = {ASSET_TAGS = (); }; };
+		36A6267D1C40D3E200EF35EB /* 420ToNv12.c in Sources */ = {isa = PBXBuildFile; fileRef = 36A6267A1C40D3E200EF35EB /* 420ToNv12.c */; settings = {ASSET_TAGS = (); }; };
+		36A6267E1C40D3E200EF35EB /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 36A6267C1C40D3E200EF35EB /* main.c */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +25,9 @@
 
 /* Begin PBXFileReference section */
 		36A003291BC1103A009246F9 /* Std420ToNv12 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Std420ToNv12; sourceTree = BUILT_PRODUCTS_DIR; };
-		36A0032C1BC1103A009246F9 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		36A003331BC110B1009246F9 /* 420ToNv12.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 420ToNv12.c; sourceTree = "<group>"; };
-		36A003341BC110B1009246F9 /* 420ToNv12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 420ToNv12.h; sourceTree = "<group>"; };
+		36A6267A1C40D3E200EF35EB /* 420ToNv12.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = 420ToNv12.c; sourceTree = SOURCE_ROOT; };
+		36A6267B1C40D3E200EF35EB /* 420ToNv12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 420ToNv12.h; sourceTree = SOURCE_ROOT; };
+		36A6267C1C40D3E200EF35EB /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +60,9 @@
 		36A0032B1BC1103A009246F9 /* Std420ToNv12 */ = {
 			isa = PBXGroup;
 			children = (
-				36A0032C1BC1103A009246F9 /* main.c */,
-				36A003331BC110B1009246F9 /* 420ToNv12.c */,
-				36A003341BC110B1009246F9 /* 420ToNv12.h */,
+				36A6267A1C40D3E200EF35EB /* 420ToNv12.c */,
+				36A6267B1C40D3E200EF35EB /* 420ToNv12.h */,
+				36A6267C1C40D3E200EF35EB /* main.c */,
 			);
 			path = Std420ToNv12;
 			sourceTree = "<group>";
@@ -123,8 +123,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36A003351BC110B1009246F9 /* 420ToNv12.c in Sources */,
-				36A0032D1BC1103A009246F9 /* main.c in Sources */,
+				36A6267E1C40D3E200EF35EB /* main.c in Sources */,
+				36A6267D1C40D3E200EF35EB /* 420ToNv12.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +241,7 @@
 				36A003321BC1103A009246F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
